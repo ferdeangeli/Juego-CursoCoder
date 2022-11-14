@@ -15,9 +15,16 @@ export default function App() {
 
   let content = <StartGameScreen onStartGame={handleStartGame} />
 
-  if(userNumber){
-    content = <GameScreen chosenNumber={userNumber} />
+  const handleRestart = () => {
+    setUserNumber('')
+    content = <StartGameScreen onStartGame={handleStartGame} />
   }
+
+  if(userNumber){
+    content = <GameScreen chosenNumber={userNumber} onRestart={handleRestart}/>
+  }
+
+
 
   return (
     <View style={styles.container}>

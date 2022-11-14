@@ -1,13 +1,14 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View, Modal } from 'react-native'
 import React, { useState } from 'react'
 import colors from '../../constants/colors'
 
-const GameScreen = ({chosenNumber}) => {
+const GameScreen = ({chosenNumber, onRestart}) => {
 
     const randomNumber = parseInt(Math.random() * 99) 
     
     const [currentGuess, setCurrentGuess] = useState(randomNumber)
 
+   
     const handleLowerButton = () => {
         if(chosenNumber < currentGuess){
             alert("GANASTE!!!")
@@ -24,6 +25,7 @@ const GameScreen = ({chosenNumber}) => {
         }
     }
 
+
     return (
         <View style={styles.mainContainer}>
             <Text style={styles.initialGuess}>Valor supuesto: {currentGuess}</Text>
@@ -36,7 +38,9 @@ const GameScreen = ({chosenNumber}) => {
                     <Text style={styles.buttonHigher}>MAYOR</Text>
                 </Pressable>
             </View>
-            
+            <Pressable onPress={onRestart}>
+                <Text style={styles.buttonRestart}>REINICIAR JUEGO</Text>
+            </Pressable>
         </View>
     )
 }
@@ -88,5 +92,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         textAlign: 'center',
         fontWeight: '700'
+    },
+
+    buttonRestart: {
+        backgroundColor: 'purple',
+        padding: 5,
+        borderWidth: 1,
+        borderRadius: 7,
+        width: 150,
+        alignItems: 'center',
+        textAlign: 'center',
+        fontWeight: '700',
+        marginTop: 40,
+        color: 'white'
     }
 })

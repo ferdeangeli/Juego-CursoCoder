@@ -5,7 +5,7 @@ import Input from '../Input/Input';
 import colors from '../../constants/colors';
 
 
-const StartGameScreen = () => {
+const StartGameScreen = ({onStartGame}) => {
 
     const [userNumber, setUserNumber] = useState("")
     const [confirmed, setConfirmed] = useState(false)
@@ -48,7 +48,7 @@ const StartGameScreen = () => {
                 {confirmed && 
                     <Card>
                         <Text style={styles.selectedNumber}>Número elegido: {selectedNumber}</Text>
-                        <Pressable>
+                        <Pressable onPress={() => onStartGame(selectedNumber)}>
                             <Text style={styles.startButton}>Empezar el juego</Text>
                         </Pressable>
                     </Card>}

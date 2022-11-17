@@ -4,8 +4,19 @@ import { StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header/Header';
 import GameScreen from './components/Screens/GameScreen';
 import StartGameScreen from './components/Screens/StartGameScreen';
+import { useFonts } from 'expo-font';
 
 export default function App() {
+
+  const [loaded] = useFonts({
+    TitanOne: require('./assets/fonts/TitanOne-Regular.ttf'),
+    MarheyBold: require('./assets/fonts/Marhey-Bold.ttf')
+  })
+
+
+  if(!loaded){
+    return null
+  }
 
   const [userNumber, setUserNumber] = useState('')
 
@@ -29,7 +40,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Header style={styles.header} title="ADIVINA EL NUMERO" />
+      <Header title="ADIVINA EL NUMERO" newStyles={{fontFamily: 'MarheyBold'}} />
       {content}
     </View>
   );

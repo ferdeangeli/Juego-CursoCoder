@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import Card from '../Card/Card';
 import Input from '../Input/Input';
 import colors from '../../constants/colors';
+import { useFonts } from 'expo-font';
+
 
 
 const StartGameScreen = ({onStartGame}) => {
+
 
     const [userNumber, setUserNumber] = useState("")
     const [confirmed, setConfirmed] = useState(false)
@@ -75,7 +78,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 7,
         width: 90,
-        alignItems: 'center'
+        alignItems: 'center',
+        fontFamily: 'MarheyBold'
     },
 
     confirmButton: {

@@ -13,7 +13,7 @@ const GameScreen = ({chosenNumber, onRestart}) => {
         if(chosenNumber < currentGuess){
             alert("GANASTE!!!")
         }else{
-            alert("PERDISTE LOSER!!")
+            alert("PERDISTE!!!")
         }
     }
 
@@ -21,7 +21,7 @@ const GameScreen = ({chosenNumber, onRestart}) => {
         if(chosenNumber > currentGuess){
             alert("GANASTE!!!")
         }else{
-            alert("PERDISTE LOSER!!")
+            alert("PERDISTE!!!")
         }
     }
 
